@@ -4,14 +4,14 @@ from robobrowser import RoboBrowser
 
 def message(incoming):
         # Basic variables for authorization:
-    user = "Ryan" # For shits and giggles...
-    email = "rjames@altamontschool.org"
-    pwd = "RJalta2017"
+    user = config.USER # For shits and giggles...
+    email = config.EMAIL
+    pwd = config.PASSWORD
     auth = (email, pwd)
     # Message object:
     m = Message(auth=auth)
     # Recipients
-    m.setRecipients('ryanjames1729@gmail.com')
+    m.setRecipients(config.RECIPIENT)
     # Subject:
     m.setSubject('Network Speed Test')
     # Body:
@@ -22,7 +22,7 @@ def message(incoming):
 
 def formSubmit(latency, download, upload):
     br = RoboBrowser()
-    br.open("https://goo.gl/forms/pZYg0m9FTfQZMNHw2")
+    br.open(config.GOOGLELINK)
     form = br.get_form()
     form["entry.1180755644"] = latency
     form['entry.1058068687'] = download
