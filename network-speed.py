@@ -35,7 +35,7 @@ connect = 0
 while True:
     try:
         test = pyspeedtest.SpeedTest()
-        ping = test.ping()
+        ping = format(test.ping(), '.2f')
         dl = format(test.download() / 1000000, '.2f')
         ul = format(test.upload() / 1000000, '.2f')
         formSubmit(ping, dl, ul)
